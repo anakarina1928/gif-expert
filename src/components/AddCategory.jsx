@@ -12,7 +12,8 @@ const AddCategory = ({ type, placeholder,setCategories }) => {
     const onSubmit= (event) =>{
         //para que no se recargue
         event.preventDefault();
-
+        // trim() es para eliminar los espacio en blanco de adelata y atras de una cadena sin modificar el elemento existente.
+        if(inputValue.trim().length <= 1) return;
         /* recuerda que setCategories es una funcion
         necesitamos agregar un elemento nuevo y dejar los elementos que ya existian dentro del arreglo
         entonces podemos utilizar el operador spread para crear un nuevo arreglo y agregarle el 
@@ -20,6 +21,7 @@ const AddCategory = ({ type, placeholder,setCategories }) => {
         /*El inputValue es donde tengo guardado el evento de lo que el usario escribio*/ 
         setCategories(categories => [inputValue,...categories])
         console.log(inputValue);
+        setinputValue('');
     }
     return (
 
