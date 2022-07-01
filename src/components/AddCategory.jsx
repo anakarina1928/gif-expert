@@ -1,7 +1,7 @@
 
 import { React, useState } from 'react'
 
-const AddCategory = ({ type, placeholder,setCategories }) => {
+const AddCategory = ({ type, placeholder,onNewCategory}) => {
 
     const [inputValue, setinputValue] = useState('');
     const onInputChange = (event) => {
@@ -13,19 +13,23 @@ const AddCategory = ({ type, placeholder,setCategories }) => {
         //para que no se recargue
         event.preventDefault();
         // trim() es para eliminar los espacio en blanco de adelata y atras de una cadena sin modificar el elemento existente.
-        if(inputValue.trim().length <= 1) return;
+        const categoryEntered=inputValue.trim()
+        if( categoryEntered.length <= 1) return;
+        setinputValue('');
+        onNewCategory(categoryEntered);
         /* recuerda que setCategories es una funcion
         necesitamos agregar un elemento nuevo y dejar los elementos que ya existian dentro del arreglo
         entonces podemos utilizar el operador spread para crear un nuevo arreglo y agregarle el 
         array anterior */ 
         /*El inputValue es donde tengo guardado el evento de lo que el usario escribio*/ 
-        setCategories(categories => [inputValue,...categories])
+       /* setCategories(categories => [inputValue,...categories])
         console.log(inputValue);
-        setinputValue('');
+        */
+        
     }
     return (
 
-        <form onSubmit={(event)=>onSubmit(event)}>
+        <form onSubmit={onSubmit}>
             <input
                 type={type}
                 placeholder={placeholder}

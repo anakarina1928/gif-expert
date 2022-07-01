@@ -7,12 +7,16 @@ import './assets/gifExpert.css'
 const GifExpertApp = () => {
 
     //ya tenemos un espacio en meoria para manejar las coategorias
-    const [categories, setCategories] = useState(['One Punch', 'pupilo']);
+    const [categories, setCategories] = useState([]);
     console.log(categories);
 
-    const onAddCategory = () =>{
-        //creo un nuevo arreglo, OPERADOR SPRead agregando una copia de mi arreglo "categories" y agrego la nueva categoria
-        setCategories([...categories, 'pedro']);
+    const onAddCategory = (newCategory) =>{
+        console.log(newCategory);
+        const lowercaseCategory = newCategory.toLowerCase();
+        if(!categories.includes(lowercaseCategory)){
+            setCategories([lowercaseCategory,...categories ]); //creo un nuevo arreglo, OPERADOR SPRead agregando una copia de mi arreglo "categories" y agrego la nueva categoria
+        }
+        
     }
 
     return (
@@ -23,7 +27,7 @@ const GifExpertApp = () => {
             <AddCategory
             type='text'
             placeholder={'buscado'}
-            setCategories={setCategories}
+            onNewCategory={onAddCategory}
 
 
             />
