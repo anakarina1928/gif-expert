@@ -1,7 +1,7 @@
 import { React, useState } from 'react'
-import  AddCategory  from './components/AddCategory';
+import AddCategory from './components/AddCategory';
 import './assets/gifExpert.css'
-
+import { GifGrid } from './components/GifGrid';
 
 
 const GifExpertApp = () => {
@@ -10,13 +10,13 @@ const GifExpertApp = () => {
     const [categories, setCategories] = useState([]);
     console.log(categories);
 
-    const onAddCategory = (newCategory) =>{
+    const onAddCategory = (newCategory) => {
         console.log(newCategory);
         const lowercaseCategory = newCategory.toLowerCase();
-        if(!categories.includes(lowercaseCategory)){
-            setCategories([lowercaseCategory,...categories ]); //creo un nuevo arreglo, OPERADOR SPRead agregando una copia de mi arreglo "categories" y agrego la nueva categoria
+        if (!categories.includes(lowercaseCategory)) {
+            setCategories([lowercaseCategory, ...categories]); //creo un nuevo arreglo, OPERADOR SPRead agregando una copia de mi arreglo "categories" y agrego la nueva categoria
         }
-        
+
     }
 
     return (
@@ -25,24 +25,22 @@ const GifExpertApp = () => {
             <h1>GifExpertApp</h1>
 
             <AddCategory
-            type='text'
-            placeholder={'buscado'}
-            onNewCategory={onAddCategory}
-
-
+                type='text'
+                placeholder={'buscado'}
+                onNewCategory={onAddCategory}
             />
-        
 
-           
-            <ol>
-                {categories.map((category, index) => {
-                    return (
-                        <li key={index}>{category}</li>
-                    )
+            {categories.map((category, index) => {
+                return (
+                    <GifGrid 
+                    category={category}
+                    key={index}
+                    />
+                )
 
-                })
-                }
-            </ol>
+            })
+            }
+
 
         </>
     )

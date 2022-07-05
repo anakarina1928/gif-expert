@@ -12,7 +12,8 @@ const AddCategory = ({ type, placeholder,onNewCategory}) => {
     const onSubmit= (event) =>{
         //para que no se recargue
         event.preventDefault();
-        // trim() es para eliminar los espacio en blanco de adelata y atras de una cadena sin modificar el elemento existente.
+        /* trim() es para eliminar los espacio en blanco de adelata y 
+        atras de una cadena sin modificar el elemento existente.*/
         const categoryEntered=inputValue.trim()
         if( categoryEntered.length <= 1) return;
         setinputValue('');
