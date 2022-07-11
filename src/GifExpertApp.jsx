@@ -7,7 +7,7 @@ import { GifGrid } from './components/GifGrid';
 const GifExpertApp = () => {
 
     //ya tenemos un espacio en meoria para manejar las coategorias
-    const [categories, setCategories] = useState([]);
+    const [categories, setCategories] = useState(['one punch']);
     console.log(categories);
 
     const onAddCategory = (newCategory) => {
