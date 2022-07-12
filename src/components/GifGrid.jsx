@@ -1,43 +1,36 @@
 import React from 'react'
-import { useState, useEffect } from 'react';
-import { getGifs } from '../api/api'
+import { GifItem } from './GifItem';
+import '../assets/gifExpert.css'
+import { useFetchGifs } from '../hooks/useFetchGifs';
 
 /* deberiamos de obligar a que la castegoria siempre venga*/
 export const GifGrid = ({ category }) => {
 
-    const [images, setImages] = useState([]);
-    const getImages = async () => {
-        const newImages = await getGifs(category);
-        setImages(newImages);
-    }
+    const { images, isLoading } = useFetchGifs(category);
 
-    useEffect(() => {
-        getImages();
-    }, []);// si dejo la dependencia vacia [], esto significa que el useEfect solo
-    // se va a disparar la primera vez que se crea 
-
-
-    //const api = getGifs(category);
+    console.log("rendering me: GifGrid with", category);
 
     return (
+
         <>
             {
-                images.map(item => {
-                    return (
-                        <div key ={item.id}>
-
-                        <p>{item.title}</p>
-
-                       <img src={item.url}/>
-
-                        </div>
-                    )
-
-                })
-
+                isLoading && (<h2>Cargando...</h2>)
             }
 
+            <section className='card-grid'>
+                {
 
+                    images.map(item => {
+                        return (
+                                <GifItem
+                                    key={item.id}
+                                    titleGif={item.title}
+                                    img={item.url}
+                                />
+                        )
+                    })
+                }
+            </section>
         </>
     )
 }
