@@ -2,12 +2,14 @@ import { React, useState } from 'react'
 import AddCategory from './components/AddCategory';
 import './assets/gifExpert.css'
 import { GifGrid } from './components/GifGrid';
-
+import { getGifs } from './api/api';
+//import { getGifs } from './api/api';
 
 const GifExpertApp = () => {
 
     //ya tenemos un espacio en meoria para manejar las coategorias
     const [categories, setCategories] = useState(['one punch']);
+    //const api = getGifs(categories);
     console.log(categories);
 
     const onAddCategory = (newCategory) => {
