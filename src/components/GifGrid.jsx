@@ -5,21 +5,37 @@ import { getGifs } from '../api/api'
 /* deberiamos de obligar a que la castegoria siempre venga*/
 export const GifGrid = ({ category }) => {
 
-    const [counter, setCounter] = useState(10);
+    const [images, setImages] = useState([]);
+    const getImages = async () => {
+        const newImages = await getGifs(category);
+        setImages(newImages);
+    }
 
-    useEffect(()=>{
-        getGifs(category);
-    },[])// si dejo la dependencia vacia [], esto significa que el useEfect solo
+    useEffect(() => {
+        getImages();
+    }, []);// si dejo la dependencia vacia [], esto significa que el useEfect solo
     // se va a disparar la primera vez que se crea 
 
+
     //const api = getGifs(category);
-    
+
     return (
         <>
-            <h3>{category}</h3>
-            <h5>{counter}</h5>
+            {
+                images.map(item => {
+                    return (
+                        <div key ={item.id}>
 
-            <button onClick={()=> setCounter(counter+1)}>+1</button>
+                        <p>{item.title}</p>
+
+                       <img src={item.url}/>
+
+                        </div>
+                    )
+
+                })
+
+            }
 
 
         </>
