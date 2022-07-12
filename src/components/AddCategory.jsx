@@ -1,14 +1,16 @@
 
 import { React, useState } from 'react'
 
-const AddCategory = ({ type, placeholder,onNewCategory}) => {
+const AddCategory = ({ type, placeholder, onNewCategory}) => {
 
     const [inputValue, setinputValue] = useState('');
+    
     const onInputChange = (event) => {
         const eventChage = event.target.value;
         setinputValue(eventChage);
         console.log('que soy: ', event.target.value);
     }
+
     const onSubmit= (event) =>{
         //para que no se recargue
         event.preventDefault();
