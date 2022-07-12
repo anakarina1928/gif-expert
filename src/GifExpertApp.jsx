@@ -8,7 +8,7 @@ import { getGifs } from './api/api';
 const GifExpertApp = () => {
 
     //ya tenemos un espacio en meoria para manejar las coategorias
-    const [categories, setCategories] = useState(['one punch']);
+    const [categories, setCategories] = useState([]);
     //const api = getGifs(categories);
     console.log(categories);
 
