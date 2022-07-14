@@ -2,22 +2,25 @@ import React from 'react'
 import { GifItem } from './GifItem';
 import '../assets/gifExpert.css'
 import { useFetchGifs } from '../hooks/useFetchGifs';
+//import { ButtonRecet } from './ButtonRecet';
 
 /* deberiamos de obligar a que la castegoria siempre venga*/
 export const GifGrid = ({ category }) => {
 
     const { images, isLoading } = useFetchGifs(category);
-
-    console.log("rendering me: GifGrid with", category);
+   // const recet = () => location.reload();
 
     return (
 
         <>
+
             {
                 isLoading && (<h2>Cargando...</h2>)
             }
 
+
             <section className='card-grid'>
+               {/*<ButtonRecet onClick={recet} />*/}
                 {
 
                     images.map(item => {

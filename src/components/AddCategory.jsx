@@ -4,6 +4,7 @@ import { React, useState } from 'react'
 const AddCategory = ({ type, placeholder, onNewCategory}) => {
 
     const [inputValue, setinputValue] = useState('');
+    const [seart, setSeart] = useState(false);
     
     const onInputChange = (event) => {
         const eventChage = event.target.value;
@@ -20,6 +21,7 @@ const AddCategory = ({ type, placeholder, onNewCategory}) => {
         if( categoryEntered.length <= 1) return;
         setinputValue('');
         onNewCategory(categoryEntered);
+        setSeart(true)
         /* recuerda que setCategories es una funcion
         necesitamos agregar un elemento nuevo y dejar los elementos que ya existian dentro del arreglo
         entonces podemos utilizar el operador spread para crear un nuevo arreglo y agregarle el 

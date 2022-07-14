@@ -2,15 +2,16 @@ import { React, useState } from 'react'
 import AddCategory from './components/AddCategory';
 import './assets/gifExpert.css'
 import { GifGrid } from './components/GifGrid';
-import { ButtonRecet } from './components/ButtonRecet';
+
 
 
 const GifExpertApp = () => {
 
     //ya tenemos un espacio en memoria para manejar las coategorias
     const [categories, setCategories] = useState([]);
+  
 
-    const recet = () => location.reload();
+   
 
 
     const onAddCategory = (newCategory) => {
@@ -28,9 +29,7 @@ const GifExpertApp = () => {
         <>
             <h1>GifExpertApp</h1>
 
-            <ButtonRecet
-            onClick={recet}
-            />
+            
 
             <AddCategory
                 type='text'
@@ -40,11 +39,14 @@ const GifExpertApp = () => {
 
             {categories.map((category, index) => {
                 return (
+                    
+                
                     <GifGrid 
                     key={index}
                     category={category}
                    
                     />
+                    
                 )
 
             })
