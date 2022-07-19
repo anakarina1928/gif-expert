@@ -2,7 +2,7 @@ import { React, useState } from 'react'
 import AddCategory from './components/AddCategory';
 import './assets/gifExpert.css'
 import { GifGrid } from './components/GifGrid';
-import { Header } from './components/Header';
+
 
 
 
@@ -25,34 +25,41 @@ const GifExpertApp = () => {
 
     }
 
+
     return (
+
         <section className='container'>
-            <Header
-                msj={'ENCUENTRA LOS MEJORES GIFS PARA TUS AMIGOS'}
-            />
+
+
+            
 
 
 
             <AddCategory
                 type='text'
-                placeholder={'buscado'}
+                className={'form-control me-2'}
                 onNewCategory={onAddCategory}
             />
+
+
+
+
+
 
             {categories.map((category) => {
                 return (
 
+                   
 
-                    <GifGrid
-                        key={category}
-                        category={category}
 
-                    />
+                       < GifGrid key={category} category={category} /> 
 
+                   
                 )
 
             })
             }
+
 
 
         </section>

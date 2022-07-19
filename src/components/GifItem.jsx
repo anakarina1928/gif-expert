@@ -3,12 +3,12 @@ import '../assets/gifExpert.css'
 
 export const GifItem = ({titleGif, img}) => {
     return (
-        <div className='card' >
+        
+            <div className="col-12 col-md-6">
+                
+            <p className="display-6 text-center">{titleGif}</p>
 
-            <h3>{titleGif}</h3>
-
-           <img src={img} alt={titleGif}/>
-
-        </div>
+           <img className='img-thumbnail ' src={img} alt={titleGif}/>
+           </div>
     )
 }
