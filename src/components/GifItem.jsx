@@ -6,9 +6,10 @@ export const GifItem = ({titleGif, img}) => {
         
             <div className="col-12 col-md-6">
                 
-            <p className="display-6 text-center">{titleGif}</p>
+            <p className="display-6 text-center text-gifs">{titleGif}</p>
 
-           <img className='img-thumbnail ' src={img} alt={titleGif}/>
+           <img className='img-thumbnail  ' src={img} alt={titleGif}/>
+           
            </div>
     )
 }

@@ -1,11 +1,11 @@
 import React from 'react'
 import { GifItem } from './GifItem';
-import '../assets/gifExpert.css'
 import { useFetchGifs } from '../hooks/useFetchGifs';
 import { Loading } from './Loading';
+import '../assets/gifExpert.css'
 
 /* deberiamos de obligar a que la castegoria siempre venga*/
-export const GifGrid = ({ category,className }) => {
+export const GifGrid = ({ category}) => {
 
     const { images, isLoading } = useFetchGifs(category);
    // const recet = () => location.reload();

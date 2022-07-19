@@ -1,8 +1,19 @@
 import React from 'react'
+import '../assets/gifExpert.css'
 
 
-export const ButtonRecet = ({onClick}) => {
+const ButtonRecet = ({text,onClick} ) => {
   return (
-    <button onClick={onClick}>BUSCAR OTROS</button>
+    
+    <nav  className="navbar navbar-light bg-light" onClick={onClick}>
+      <div class="container" >
+        
+          <img  src={"./risa.png"} alt="" width="50" height="50" className="d-inline-block align-text-top" />
+         <p className='reset'>{text}</p> 
+       
+      </div>
+    </nav>
   )
 }
+
+export default ButtonRecet;
