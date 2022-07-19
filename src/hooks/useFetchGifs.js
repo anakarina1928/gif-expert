@@ -11,14 +11,20 @@ export const useFetchGifs = (category) => {
     const getImages = async () => {
        // console.log("calling me: useFetchGifs -> getImages, with:", category);
         const newImages = await getGifs(category);
-        setImages(newImages);
+        setImages([images, ...newImages]);
         setIsLoading(false);
         //console.log("called setImages, for, with", category, newImages);
         
     }
 
+    
+
     useEffect(() => {
-        getImages();
+        
+        setTimeout(()=>{
+            getImages();
+          }, 1000);
+        
     }, []);// si dejo la dependencia vacia [], esto significa que el useEfect solo
     // se va a disparar la primera vez que se crea 
 

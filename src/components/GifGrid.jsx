@@ -2,10 +2,10 @@ import React from 'react'
 import { GifItem } from './GifItem';
 import '../assets/gifExpert.css'
 import { useFetchGifs } from '../hooks/useFetchGifs';
-//import { ButtonRecet } from './ButtonRecet';
+import { Loading } from './Loading';
 
 /* deberiamos de obligar a que la castegoria siempre venga*/
-export const GifGrid = ({ category }) => {
+export const GifGrid = ({ category,className }) => {
 
     const { images, isLoading } = useFetchGifs(category);
    // const recet = () => location.reload();
@@ -15,12 +15,14 @@ export const GifGrid = ({ category }) => {
         <>
 
             {
-                isLoading && (<h2>Cargando...</h2>)
+                isLoading && (<Loading />)
             }
 
 
-            <section className='card-grid'>
-               {/*<ButtonRecet onClick={recet} />*/}
+            <section className='container'>
+
+            <div className="row row-cols-2">
+              
                 {
 
                     images.map(item => {
@@ -33,6 +35,7 @@ export const GifGrid = ({ category }) => {
                         )
                     })
                 }
+              </div>
             </section>
         </>
     )
