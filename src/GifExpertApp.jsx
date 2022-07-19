@@ -37,7 +37,7 @@ const GifExpertApp = () => {
 
             <AddCategory
                 type='text'
-                className={'form-control me-2'}
+                
                 onNewCategory={onAddCategory}
             />
 

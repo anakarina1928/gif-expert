@@ -2,7 +2,7 @@
 import { React, useState } from 'react'
 import { Header } from './Header';
 
-const AddCategory = ({ type, placeholder, onNewCategory, className }) => {
+const AddCategory = ({ type, onNewCategory, }) => {
 
     const [inputValue, setinputValue] = useState('');
     const [seart, setSeart] = useState(false);
@@ -34,26 +34,31 @@ const AddCategory = ({ type, placeholder, onNewCategory, className }) => {
 
     }
     return (
-<nav className="navbar navbar-light bg-light  col-lg ">
-        <div class="container-fluid">
-            
-                <a class="navbar-brand display-3">¡BUSCA LOS MEJORES GRIFS PARA TUS AMIGOS!</a>
-                <form className='d-flex' onSubmit={onSubmit}>
+        <nav className="navbar navbar-light bg-light ">
+
+
+
+            <form className='container-fluid' onSubmit={onSubmit}>
+
+                <div className="input-group">
+
                     <input
                         type={type}
                         value={inputValue}
                         onChange={onInputChange}
-                        className={className}
-                        placeholder="Search" aria-label="Search"
-
+                        className="form-control"
+                        placeholder="Buscar"
+                        aria-label="Username"
+                        aria-describedby="basic-addon1"
 
                     ></input>
+                </div>
 
 
 
-                </form>
+            </form>
 
-        </div>
+
 
         </nav>
 
