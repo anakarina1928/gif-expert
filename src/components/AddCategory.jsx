@@ -1,6 +1,7 @@
 
 import { React, useState } from 'react'
-import { Header } from './Header';
+import felicidad from '../assets/felicidad.svg'
+
 
 const AddCategory = ({ type, onNewCategory, }) => {
 
@@ -36,12 +37,10 @@ const AddCategory = ({ type, onNewCategory, }) => {
     return (
         <nav className="navbar navbar-light bg-light ">
 
-
-
             <form className='container-fluid' onSubmit={onSubmit}>
 
                 <div className="input-group">
-
+                <img className="input-group-text d-inline-block align-text-top" id="basic-addon1" src={felicidad} width="50" height="50" />
                     <input
                         type={type}
                         value={inputValue}

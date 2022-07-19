@@ -1,4 +1,21 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  /*para mover el modelo de caja*/
+}
+
 body{
-  background: black;
+ background: #f6edf8;
   padding: 20px;
+}
+
+
+.text-gifs{
+  color: blueviolet;
+  margin: revert;
+}
+
+.reset:hover{
+  color: blueviolet;
 }
