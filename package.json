@@ -2,10 +2,13 @@
   "name": "gif-expert-app",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://anakarina1928.github.io/gif-expert",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "vite build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "anakarina-links": "^0.1.2",
@@ -18,6 +21,7 @@
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@vitejs/plugin-react": "^1.3.0",
+    "gh-pages": "^4.0.0",
     "vite": "^2.9.9"
   },
   "main": "vite.config.js",
